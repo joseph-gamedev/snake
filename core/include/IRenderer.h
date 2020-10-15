@@ -17,6 +17,8 @@ namespace Core
 
 		virtual void Terminate() = 0;
 
+		virtual Vector2 GetViewportSize() const = 0;
+
 		virtual void* Get() = 0;
 	};
 };

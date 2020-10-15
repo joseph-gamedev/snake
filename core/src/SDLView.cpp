@@ -62,10 +62,6 @@ void Core::SDLView::Terminate()
 	SDL_Quit();
 }
 
-void Core::SDLView::GetViewportSize() const
-{
-}
-
 Vector2 Core::SDLView::GetViewSize() const
 {
 	return Vector2::One;

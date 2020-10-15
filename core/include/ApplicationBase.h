@@ -11,6 +11,7 @@ namespace Core
 	class ApplicationBase : public NonCopyable
 	{
 		public:
+			Vector2 GetViewportSize();
 			Vector2 GetViewSize();
 			IPainter& GetPainter();
 

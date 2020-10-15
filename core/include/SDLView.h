@@ -30,8 +30,6 @@ namespace Core
 
 		virtual void Terminate() override;
 
-		virtual void GetViewportSize() const override;
-
 		virtual Vector2 GetViewSize() const override;
 
 		virtual void* GetWindow() const override;

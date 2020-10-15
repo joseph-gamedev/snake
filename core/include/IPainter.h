@@ -15,7 +15,9 @@ namespace Core
 	public:
 		virtual ~IPainter() {}
 
-		virtual void DrawLine(const Vector2& v1, const Vector2& v2, int16_t pixelSize) = 0;
+		virtual void DrawThickLine(const Vector2& v1, const Vector2& v2, float width) = 0;
+
+		virtual void DrawLine(const Vector2& v1, const Vector2& v2) = 0;
 
 		virtual void DrawLines(const std::vector<Vector2>& points) = 0;
 
@@ -23,9 +25,9 @@ namespace Core
 
 		virtual void DrawPoints(const std::vector<Vector2>& points) = 0;
 
-		virtual void DrawCircle(const std::vector<Vector2>& center, float radius) = 0;
+		virtual void DrawCircle(const Vector2& center, float radius) = 0;
 
-		virtual void DrawFillCircle(const std::vector<Vector2>& center, float radius) = 0;
+		virtual void DrawFillCircle(const Vector2& center, float radius) = 0;
 
 		virtual void DrawRectangle(float x, float y, float width, float height) = 0;
 

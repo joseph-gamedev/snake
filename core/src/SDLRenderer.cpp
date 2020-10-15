@@ -38,3 +38,10 @@ void * Core::SDLRenderer::Get()
 {
 	return m_Renderer;
 }
+
+Vector2 Core::SDLRenderer::GetViewportSize() const
+{
+	SDL_Rect rect;
+	SDL_RenderGetViewport(m_Renderer, &rect);
+	return Vector2(rect.w, rect.h);
+}

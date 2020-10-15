@@ -7,6 +7,7 @@ set(HEADER_FILES
 	include/SDLView.h
 	include/SDLRenderer.h
 	include/SDLPainter.h
+	include/SDLPrimitives.h
 	include/ILifeCycle.h
 	include/IPainter.h
 	include/IRenderer.h
@@ -19,6 +20,7 @@ set(SOUCRCE_FILES
 	src/ApplicationBase.cpp
 	src/Board.cpp
 	src/SDLPainter.cpp
+	src/SDLPrimitives.cpp
 	src/SDLRenderer.cpp
 	src/SDLView.cpp
 	src/Vector2.cpp

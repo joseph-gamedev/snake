@@ -32,7 +32,7 @@ void SnakeApplication::PostUpdate(float deltaTime)
 
 void SnakeApplication::Update(float timeDelta)
 {
-	m_scene->Update();
+	m_scene->Update(timeDelta);
 }
 
 void SnakeApplication::Draw()

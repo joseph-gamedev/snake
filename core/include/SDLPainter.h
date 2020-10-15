@@ -12,7 +12,9 @@ namespace Core
 		SDLPainter(SDL_Renderer* renderer);
 		virtual ~SDLPainter();
 
-		virtual void DrawLine(const Vector2& v1, const Vector2& v2, int16_t pixelSize) override;
+		virtual void DrawThickLine(const Vector2& v1, const Vector2& v2, float width) override;
+
+		virtual void DrawLine(const Vector2& v1, const Vector2& v2) override;
 
 		virtual void DrawLines(const std::vector<Vector2>& points) override;
 
@@ -20,9 +22,9 @@ namespace Core
 
 		virtual void DrawPoints(const std::vector<Vector2>& points) override;
 
-		virtual void DrawCircle(const std::vector<Vector2>& center, float radius) override;
+		virtual void DrawCircle(const Vector2& center, float radius) override;
 
-		virtual void DrawFillCircle(const std::vector<Vector2>& center, float radius) override;
+		virtual void DrawFillCircle(const Vector2& center, float radius) override;
 
 		virtual void DrawRectangle(float x, float y, float width, float height) override;
 

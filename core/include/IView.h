@@ -9,8 +9,6 @@ namespace Core
 	public:
 		virtual ~IView() {};
 
-		virtual void GetViewportSize() const = 0;
-
 		virtual Vector2 GetViewSize() const = 0;
 
 		virtual void* GetWindow() const = 0;

@@ -26,6 +26,8 @@ namespace Core
 
 		virtual void* Get() override;
 
+		virtual Vector2 GetViewportSize() const override;
+
 	private:
 		SDL_Renderer* m_Renderer;
 		SDL_Window* m_Window;
