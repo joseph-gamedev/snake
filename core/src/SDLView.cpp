@@ -37,6 +37,7 @@ void Core::SDLView::ReInitialize()
 
 void Core::SDLView::Update(ApplicationBase & appBase)
 {
+
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		/* handle your event here */

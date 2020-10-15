@@ -3,6 +3,7 @@
 #include <NonCopyable.h>
 #include <memory>
 
+
 template<typename T>
 class Board;
 
@@ -11,7 +12,7 @@ namespace Core
 	class Application;
 	class IPainter;
 }
-class GameScene : public Core::NonCopyable
+class GameScene : public Core::NonCopyable 
 {
 	public:
 

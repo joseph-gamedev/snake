@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include <ArcadeCore.h>
 
+
 GameScene::GameScene(Core::Application * const application)
 	: m_application(application)
 	, m_Painter(application->GetPainter())
@@ -14,6 +15,7 @@ GameScene::~GameScene()
 
 void GameScene::Init()
 {
+	
 
 }
 

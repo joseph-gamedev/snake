@@ -1,5 +1,10 @@
 #include "ApplicationBase.h"
 
+Vector2 Core::ApplicationBase::GetMousePosition()
+{
+	return m_Input->GetMousePosition();
+}
+
 Vector2 Core::ApplicationBase::GetViewportSize()
 {
 	return m_Renderer->GetViewportSize();

@@ -2,8 +2,10 @@
 #include "SDLView.h"
 #include <SDL.h>
 
+
 Core::SDLRenderer::SDLRenderer(SDLView & sdlView)
 {
+	Vector2 viewSize = sdlView.GetViewSize();
 	m_Renderer = SDL_CreateRenderer(static_cast<SDL_Window*>(sdlView.GetWindow()), -1, SDL_RENDERER_ACCELERATED);
 }
 

@@ -2,6 +2,7 @@
 #include "SDLView.h"
 #include "SDLRenderer.h"
 #include "SDLPainter.h"
+#include "SDLInput.h"
 #include <SDL.h>
 
 Core::Application::Application(const AppData & data)
@@ -15,6 +16,8 @@ Core::Application::Application(const AppData & data)
 	m_Renderer->Init();
 
 	m_Painter = std::make_unique<SDLPainter>(static_cast<SDL_Renderer*>(m_Renderer->Get()));
+
+	m_Input = std::make_unique<SDLInput>();
 }
 
 Core::Application::~Application()

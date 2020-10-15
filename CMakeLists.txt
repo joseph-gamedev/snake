@@ -6,3 +6,5 @@ add_subdirectory(core)
 
 add_subdirectory(arcade)
 
+add_subdirectory(extern/imgui)
+

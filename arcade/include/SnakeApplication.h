@@ -8,7 +8,7 @@ class GameScene;
 const char* APP_TITLE = "Snake";
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
-const Color CLEAR_COLOR = Color{ 255,255,255,255 };
+const Core::Color CLEAR_COLOR = Core::Color{ 255,255,255,255 };
 
 class SnakeApplication : public Core::Application
 {
