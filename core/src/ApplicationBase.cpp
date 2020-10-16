@@ -19,3 +19,8 @@ Core::IPainter& Core::ApplicationBase::GetPainter()
 {
 	return *m_Painter.get();
 }
+
+Core::Gui::WidgetManager & Core::ApplicationBase::GetWidgetManager()
+{
+	return *m_WidgetManager.get();
+}

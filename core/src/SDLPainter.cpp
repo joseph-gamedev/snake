@@ -1,5 +1,6 @@
 #include "SDLPainter.h"
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include "SDLPrimitives.h"
 
 Core::SDLPainter::SDLPainter(SDL_Renderer * renderer)
@@ -10,6 +11,22 @@ Core::SDLPainter::SDLPainter(SDL_Renderer * renderer)
 Core::SDLPainter::~SDLPainter()
 {
 
+}
+
+void Core::SDLPainter::DrawString(void * font, const char * text, const Rectangle<int> & rect, const Color& color)
+{
+	TTF_Font* sdl_font = static_cast<TTF_Font*>(font);
+	if (sdl_font)
+	{
+		SDL_Surface* surfaceMessage = TTF_RenderText_Solid(sdl_font, text, SDL_Color{color.red, color.green,color.blue,color.alpha});
+		SDL_Texture* message = SDL_CreateTextureFromSurface(m_Renderer, surfaceMessage);
+
+		SDL_Rect sdlrect = { rect.topLeftX,rect.topLeftY, rect.width, rect.height };
+		SDL_RenderCopy(m_Renderer, message, nullptr, &sdlrect);
+
+		SDL_FreeSurface(surfaceMessage);
+		SDL_DestroyTexture(message);
+	}
 }
 
 void Core::SDLPainter::DrawThickLine(const Vector2 & v1, const Vector2 & v2, float width)
@@ -24,19 +41,19 @@ void Core::SDLPainter::DrawLine(const Vector2 & v1, const Vector2 & v2)
 	 SDL_RenderDrawLine(m_Renderer, v1.X , v1.Y , v2.X , v2.Y);
 }
 
-void Core::SDLPainter::DrawLines(const std::vector<Vector2>& points)
-{
-
-}
+//void Core::SDLPainter::DrawLines(const std::vector<Vector2>& points)
+//{
+//
+//}
 
 void Core::SDLPainter::DrawPoint(const Vector2 & v)
 {
 	SDL_RenderDrawPoint(m_Renderer, v.X, v.Y);
 }
 
-void Core::SDLPainter::DrawPoints(const std::vector<Vector2>& points)
-{
-}
+//void Core::SDLPainter::DrawPoints(const std::vector<Vector2>& points)
+//{
+//}
 
 void Core::SDLPainter::DrawCircle(const Vector2& center, float radius)
 {
@@ -67,6 +84,11 @@ void Core::SDLPainter::DrawFillRectangle(float x, float y, float width, float he
 void Core::SDLPainter::SetColor(int8_t r, int8_t g, int8_t b, int8_t a)
 {
 	SDL_SetRenderDrawColor(m_Renderer, r, g, b, a);
+}
+
+void Core::SDLPainter::SetColor(const Color & color)
+{
+	SetColor(color.red, color.green, color.blue, color.alpha);
 }
 
 void Core::SDLPainter::SetBlendMode(TBlendingMode mode)

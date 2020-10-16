@@ -1,8 +1,11 @@
 #include "SDLView.h"
+#include "gui/WidgetManager.h"
 #include <SDL.h>
 
-Core::SDLView::SDLView(const char* title, int16_t width, int16_t height)
+Core::SDLView::SDLView(const char* title, int16_t width, int16_t height, Core::Gui::WidgetManager& widgetManager)
 	: m_Data{ title, width, height }
+	, m_Window(nullptr)
+	, m_WidgetManager(widgetManager)
 	, m_ShouldQuit(false)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
@@ -37,7 +40,6 @@ void Core::SDLView::ReInitialize()
 
 void Core::SDLView::Update(ApplicationBase & appBase)
 {
-
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		/* handle your event here */
@@ -45,6 +47,31 @@ void Core::SDLView::Update(ApplicationBase & appBase)
 		{
 		case SDL_QUIT:
 			m_ShouldQuit = true;
+			break;
+		case SDL_MOUSEMOTION:
+			{
+				int mouseX = event.motion.x;
+				int mouseY = event.motion.y;
+				m_WidgetManager.MousePosition(mouseX, mouseY);
+			}
+			break;
+		case SDL_MOUSEBUTTONUP:
+			{
+				int mouseX = event.motion.x;
+				int mouseY = event.motion.y;
+				int buttonId = event.button.button;
+				int clicks = event.button.clicks;
+				m_WidgetManager.MouseUp(mouseX, mouseY, buttonId, clicks);
+			}
+			break;
+		case SDL_MOUSEBUTTONDOWN:
+			{
+				int mouseX = event.motion.x;
+				int mouseY = event.motion.y;
+				int buttonId = event.button.button;
+				int clicks = event.button.clicks;
+				m_WidgetManager.MouseDown(mouseX, mouseY, buttonId, clicks);
+			}	
 			break;
 		default:
 			break;

@@ -1,12 +1,14 @@
 #include "SDLRenderer.h"
 #include "SDLView.h"
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 
 Core::SDLRenderer::SDLRenderer(SDLView & sdlView)
 {
 	Vector2 viewSize = sdlView.GetViewSize();
 	m_Renderer = SDL_CreateRenderer(static_cast<SDL_Window*>(sdlView.GetWindow()), -1, SDL_RENDERER_ACCELERATED);
+	TTF_Init();
 }
 
 void Core::SDLRenderer::Init()
@@ -34,6 +36,7 @@ void Core::SDLRenderer::Terminate()
 	{
 		SDL_DestroyRenderer(m_Renderer);
 	}
+	TTF_Quit();
 }
 
 void * Core::SDLRenderer::Get()

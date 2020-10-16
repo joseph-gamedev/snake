@@ -7,6 +7,10 @@ struct SDL_Window;
 
 namespace Core
 {
+	namespace Gui
+	{
+		class WidgetManager;
+	}
 	class ApplicationBase;
 
 	struct SDLViewData
@@ -19,7 +23,7 @@ namespace Core
 	class SDLView : public IView
 	{
 	public:
-		SDLView(const char* title, int16_t width, int16_t height);
+		SDLView(const char* title, int16_t width, int16_t height, Core::Gui::WidgetManager& widgetManager);
 		virtual ~SDLView();
 
 		virtual void Init() override;
@@ -46,6 +50,7 @@ namespace Core
 
 		SDLViewData m_Data;
 		SDL_Window* m_Window;
+		Core::Gui::WidgetManager& m_WidgetManager;
 		bool m_ShouldQuit;
 	};
 };

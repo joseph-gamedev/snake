@@ -1,0 +1,7 @@
+file (GLOB SDL2TTF_HEADER_FILES
+include/*.h
+)
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SDL2TTF_HEADER_FILES})
+
+include_directories(${SDL2TTF_HEADER_FILES})

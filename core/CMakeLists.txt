@@ -7,6 +7,7 @@ set(HEADER_FILES
 	include/gui/Widget.h
 	include/gui/WidgetContainer.h
 	include/gui/WidgetManager.h
+	include/Rectangle.h
 	include/SDLInput.h
 	include/SDLView.h
 	include/SDLRenderer.h
@@ -26,6 +27,7 @@ set(SOUCRCE_FILES
 	src/Application.cpp
 	src/ApplicationBase.cpp
 	src/Board.cpp
+	src/Color.cpp
 	src/gui/WidgetContainer.cpp
 	src/gui/WidgetManager.cpp
 	src/SDLInput.cpp
@@ -46,5 +48,6 @@ target_precompile_headers(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pch.h)
 
 target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(core PUBLIC ${EXTERNAL}/libsdl2/include)
+target_include_directories(core PUBLIC ${EXTERNAL}/sdl2ttf/include)
 target_include_directories(core PUBLIC ${EXTERNAL}/imgui)
 

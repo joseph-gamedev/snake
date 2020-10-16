@@ -9,7 +9,9 @@ Core::Application::Application(const AppData & data)
 	: m_appData(data)
 	, m_lastTick(0)
 {
-	m_View = std::make_unique<SDLView>(data.title, data.width, data.height);
+	m_WidgetManager = std::make_unique<Core::Gui::WidgetManager>();
+
+	m_View = std::make_unique<SDLView>(data.title, data.width, data.height, *m_WidgetManager.get());
 	m_View->Init();
 
 	m_Renderer = std::make_unique<SDLRenderer>(*(dynamic_cast<SDLView*>(m_View.get())));
@@ -41,6 +43,7 @@ void Core::Application::Run()
 		Update(deltaTime);
 		PostUpdate(deltaTime);
 		Draw();
+		m_WidgetManager->Draw(m_Painter.get());
 		m_Renderer->SwapBuffers();
 
 		m_lastTick = now;

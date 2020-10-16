@@ -6,6 +6,9 @@
 
 template<typename T>
 class Board;
+class Button;
+
+struct _TTF_Font;
 
 namespace Core
 {
@@ -37,4 +40,6 @@ class GameScene : public Core::NonCopyable
 		std::unique_ptr<Board<int>> m_board;
 		Core::IPainter& m_Painter;
 		Vector2 testposition;
+		std::unique_ptr<Button> m_PlayBtn;
+		_TTF_Font* font;
 };
