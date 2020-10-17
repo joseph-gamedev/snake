@@ -1,2 +1,2 @@
 # Snake Game
-Class video game snake created using SDL2
+Classic video game snake created using SDL2
