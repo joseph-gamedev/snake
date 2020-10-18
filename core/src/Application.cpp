@@ -40,6 +40,8 @@ void Core::Application::Run()
 
 		m_View->Update(*this);
 		m_Renderer->ClearColor(m_appData.color.red, m_appData.color.green, m_appData.color.blue, m_appData.color.alpha);
+
+
 		Update(deltaTime);
 		PostUpdate(deltaTime);
 		Draw();

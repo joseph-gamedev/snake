@@ -7,3 +7,8 @@ Vector2 SDLInput::GetMousePosition()
 	SDL_GetMouseState(&x,&y);
 	return Vector2(x,y);
 }
+
+const uint8_t* SDLInput::GetKeyboardState(int* numkeys)
+{
+	return SDL_GetKeyboardState(numkeys);
+}

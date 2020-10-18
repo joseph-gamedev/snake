@@ -1,11 +1,22 @@
 set(HEADER_FILES
 	include/Button.h
+	include/Food.h
+	include/GameConstants.h
+	include/GameObject.h
 	include/GameScene.h
+	include/Obstacle.h
+	include/Snake.h
+	include/SnakeNode.h
 	include/SnakeApplication.h)
 
 set(SOURCE_FILES
 	src/Button.cpp
+	src/Food.cpp
+	src/GameObject.cpp
 	src/GameScene.cpp
+	src/Obstacle.cpp
+	src/Snake.cpp
+	src/SnakeNode.cpp
 	src/SnakeApplication.cpp)
 
 set(EXTERNAL ${CMAKE_SOURCE_DIR}/extern)
@@ -18,6 +29,8 @@ add_executable(arcade ${SOURCE_FILES} ${HEADER_FILES})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/core/include)
+
+target_precompile_headers(arcade PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/Arcade.h)
 
 target_link_libraries(arcade PUBLIC ${SDL_LIBPATH}/SDL2.lib
 									${SDL2TTF_LIBPATH}/SDL2_ttf.lib

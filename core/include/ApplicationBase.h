@@ -14,6 +14,7 @@ namespace Core
 	{
 		public:
 
+			const uint8_t* GetKeyboardState(int* numkeys);
 			Vector2 GetMousePosition();
 			Vector2 GetViewportSize();
 			Vector2 GetViewSize();

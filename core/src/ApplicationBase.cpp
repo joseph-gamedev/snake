@@ -1,5 +1,10 @@
 #include "ApplicationBase.h"
 
+const uint8_t* Core::ApplicationBase::GetKeyboardState(int* numkeys)
+{
+	return m_Input->GetKeyboardState(numkeys);
+}
+
 Vector2 Core::ApplicationBase::GetMousePosition()
 {
 	return m_Input->GetMousePosition();

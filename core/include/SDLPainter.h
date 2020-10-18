@@ -12,6 +12,8 @@ namespace Core
 		SDLPainter(SDL_Renderer* renderer);
 		virtual ~SDLPainter();
 
+		virtual void ClearColor(const Color& color) override;
+
 		virtual void DrawString(void* font, const char* text, const Rectangle<int>& rect, const Color& color) override;
 
 		virtual void DrawThickLine(const Vector2& v1, const Vector2& v2, float width) override;

@@ -20,6 +20,8 @@ namespace Core
 	public:
 		virtual ~IPainter() {}
 
+		virtual void ClearColor(const Color& color) = 0;
+
 		virtual void DrawString(void* font, const char* text, const Rectangle<int>& rect, const Color& color) = 0;
 
 		virtual void DrawThickLine(const Vector2& v1, const Vector2& v2, float width) = 0;

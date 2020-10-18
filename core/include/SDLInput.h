@@ -10,4 +10,5 @@ public:
 
 	virtual Vector2 GetMousePosition() override;
 
+	virtual const uint8_t* GetKeyboardState(int* numkeys) override;
 };

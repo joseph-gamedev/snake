@@ -21,6 +21,7 @@ set(HEADER_FILES
 	include/IRenderer.h
 	include/IView.h
 	include/NonCopyable.h
+	include/Timer.h
 	include/Vector2.h)
 
 set(SOUCRCE_FILES 
@@ -36,7 +37,8 @@ set(SOUCRCE_FILES
 	src/SDLRenderer.cpp
 	src/SDLView.cpp
 	src/imgui_sdl.cpp
-	src/imgui_impl_sdl
+	src/imgui_impl_sdl.cpp
+	src/Timer.cpp
 	src/Vector2.cpp
 	PlatformEntry.cpp)
 

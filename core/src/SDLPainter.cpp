@@ -13,6 +13,12 @@ Core::SDLPainter::~SDLPainter()
 
 }
 
+void Core::SDLPainter::ClearColor(const Color& color)
+{
+	SDL_SetRenderDrawColor(m_Renderer, color.red, color.green, color.blue, color.alpha);
+	SDL_RenderClear(m_Renderer);
+}
+
 void Core::SDLPainter::DrawString(void * font, const char * text, const Rectangle<int> & rect, const Color& color)
 {
 	TTF_Font* sdl_font = static_cast<TTF_Font*>(font);
